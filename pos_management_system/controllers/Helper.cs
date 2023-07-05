@@ -67,5 +67,16 @@ namespace pos_management_system.controllers
         public void minimized(Form form) {
             form.WindowState = FormWindowState.Minimized;
         }
+        public void AppendChildToFrame(Panel p, Form f)
+        {
+            f.TopLevel = false;
+            f.FormBorderStyle = FormBorderStyle.None;
+            f.Dock = DockStyle.Fill;
+            p.Controls.Add(f);
+            p.Tag = f;
+            f.BringToFront();
+            f.Show();
+        }
+
     }
 }

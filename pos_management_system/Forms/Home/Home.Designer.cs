@@ -60,10 +60,12 @@
             this.updateToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.عربيToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -169,6 +171,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.homeToolStripMenuItem,
             this.customersToolStripMenuItem,
+            this.categoriesToolStripMenuItem,
             this.itemsToolStripMenuItem,
             this.billsToolStripMenuItem,
             this.usersToolStripMenuItem,
@@ -206,19 +209,19 @@
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.updateToolStripMenuItem.Text = "update";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deleteToolStripMenuItem.Text = "delete";
             // 
             // newToolStripMenuItem1
             // 
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem1.Text = "new";
             // 
             // itemsToolStripMenuItem
@@ -235,25 +238,25 @@
             // allToolStripMenuItem
             // 
             this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-            this.allToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.allToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.allToolStripMenuItem.Text = "all";
             // 
             // newToolStripMenuItem2
             // 
             this.newToolStripMenuItem2.Name = "newToolStripMenuItem2";
-            this.newToolStripMenuItem2.Size = new System.Drawing.Size(111, 22);
+            this.newToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem2.Text = "update";
             // 
             // updateToolStripMenuItem1
             // 
             this.updateToolStripMenuItem1.Name = "updateToolStripMenuItem1";
-            this.updateToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
+            this.updateToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.updateToolStripMenuItem1.Text = "delete";
             // 
             // newToolStripMenuItem3
             // 
             this.newToolStripMenuItem3.Name = "newToolStripMenuItem3";
-            this.newToolStripMenuItem3.Size = new System.Drawing.Size(111, 22);
+            this.newToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem3.Text = "new";
             // 
             // billsToolStripMenuItem
@@ -270,25 +273,25 @@
             // allToolStripMenuItem1
             // 
             this.allToolStripMenuItem1.Name = "allToolStripMenuItem1";
-            this.allToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
+            this.allToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.allToolStripMenuItem1.Text = "all";
             // 
             // updateToolStripMenuItem2
             // 
             this.updateToolStripMenuItem2.Name = "updateToolStripMenuItem2";
-            this.updateToolStripMenuItem2.Size = new System.Drawing.Size(111, 22);
+            this.updateToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.updateToolStripMenuItem2.Text = "update";
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.deleteToolStripMenuItem1.Text = "delete";
             // 
             // newToolStripMenuItem4
             // 
             this.newToolStripMenuItem4.Name = "newToolStripMenuItem4";
-            this.newToolStripMenuItem4.Size = new System.Drawing.Size(111, 22);
+            this.newToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem4.Text = "new";
             // 
             // usersToolStripMenuItem
@@ -305,26 +308,48 @@
             // allToolStripMenuItem2
             // 
             this.allToolStripMenuItem2.Name = "allToolStripMenuItem2";
-            this.allToolStripMenuItem2.Size = new System.Drawing.Size(111, 22);
+            this.allToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.allToolStripMenuItem2.Text = "all";
             // 
             // updateToolStripMenuItem3
             // 
             this.updateToolStripMenuItem3.Name = "updateToolStripMenuItem3";
-            this.updateToolStripMenuItem3.Size = new System.Drawing.Size(111, 22);
+            this.updateToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
             this.updateToolStripMenuItem3.Text = "update";
             // 
             // deleteToolStripMenuItem2
             // 
             this.deleteToolStripMenuItem2.Name = "deleteToolStripMenuItem2";
-            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(111, 22);
+            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.deleteToolStripMenuItem2.Text = "delete";
             // 
             // newToolStripMenuItem5
             // 
             this.newToolStripMenuItem5.Name = "newToolStripMenuItem5";
-            this.newToolStripMenuItem5.Size = new System.Drawing.Size(111, 22);
+            this.newToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem5.Text = "new";
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(0, 94);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1012, 533);
+            this.panel3.TabIndex = 2;
+            // 
+            // categoriesToolStripMenuItem
+            // 
+            this.categoriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createToolStripMenuItem});
+            this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.categoriesToolStripMenuItem.Text = "categories";
+            // 
+            // createToolStripMenuItem
+            // 
+            this.createToolStripMenuItem.Name = "createToolStripMenuItem";
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.createToolStripMenuItem.Text = "all";
+            this.createToolStripMenuItem.Click += new System.EventHandler(this.createToolStripMenuItem_Click);
             // 
             // languageToolStripMenuItem
             // 
@@ -338,23 +363,16 @@
             // عربيToolStripMenuItem
             // 
             this.عربيToolStripMenuItem.Name = "عربيToolStripMenuItem";
-            this.عربيToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.عربيToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.عربيToolStripMenuItem.Text = "عربي";
-            this.عربيToolStripMenuItem.Click += new System.EventHandler(this.عربيToolStripMenuItem_Click);
+            this.عربيToolStripMenuItem.Click += new System.EventHandler(this.عربيToolStripMenuItem_Click_1);
             // 
             // englishToolStripMenuItem
             // 
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.englishToolStripMenuItem.Text = "English";
-            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(0, 94);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1012, 533);
-            this.panel3.TabIndex = 2;
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click_1);
             // 
             // Home
             // 
@@ -417,6 +435,8 @@
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem عربيToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;

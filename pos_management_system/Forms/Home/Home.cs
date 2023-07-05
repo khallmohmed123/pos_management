@@ -14,8 +14,10 @@ namespace pos_management_system.Forms.Home
     {
         private controllers.Helper Helper;
         private controllers.translator trans;
+        private BaseClass.BaseForm active_form;
         public Home()
         {
+            active_form = new BaseClass.BaseForm();
             trans = new controllers.translator();
             Helper = new controllers.Helper();
             InitializeComponent();
@@ -46,6 +48,8 @@ namespace pos_management_system.Forms.Home
             newToolStripMenuItem5.Text=trans.get("new");
             updateToolStripMenuItem3.Text = trans.get("update");
             languageToolStripMenuItem.Text = trans.get("language");
+            createToolStripMenuItem.Text = trans.get("all");
+            categoriesToolStripMenuItem.Text = trans.get("categories");
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -60,18 +64,6 @@ namespace pos_management_system.Forms.Home
         {
             Helper.load_layout(this);
         }
-        private void عربيToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            controllers.translator.lang = "ar";
-            load_lang();
-            load_layout();
-        }
-        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            controllers.translator.lang = "en";
-            load_lang();
-            load_layout();
-        }
         private void button1_Click(object sender, EventArgs e)
         {
             Helper.maximize(this);
@@ -80,10 +72,32 @@ namespace pos_management_system.Forms.Home
         {
             Helper.minimized(this);
         }
-
         private void all2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Customers.Customer customer = new Customers.Customer();
+            active_form = customer;
+            Helper.AppendChildToFrame(this.panel3,customer);
+        }
 
+        private void createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void عربيToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            controllers.translator.lang = "ar";
+            load_lang();
+            Helper.AppendChildToFrame(this.panel3, active_form.get_instance());
+            load_layout();
+        }
+
+        private void englishToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            controllers.translator.lang = "en";
+            load_lang();
+            Helper.AppendChildToFrame(this.panel3, active_form.get_instance());
+            load_layout();
         }
     }
 }

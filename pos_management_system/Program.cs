@@ -16,10 +16,7 @@ namespace pos_management_system
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Customers.Customer());
-            MessageBox.Show(System.IO.Directory.GetCurrentDirectory());
-            //Application.Run(new Forms.users());
-            //Application.Run(new Form1());
+            Application.Run(new Form1());
         }
     }
 }

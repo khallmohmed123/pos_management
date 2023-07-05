@@ -13,3 +13,18 @@ C:\Users\hh\documents\visual studio 2013\Projects\pos_management_system\pos_mana
 C:\Users\hh\documents\visual studio 2013\Projects\pos_management_system\pos_management_system\obj\Debug\pos_management_system.pdb
 C:\Users\hh\documents\visual studio 2013\Projects\pos_management_system\pos_management_system\bin\Debug\context\pos_management.mdf
 C:\Users\hh\documents\visual studio 2013\Projects\pos_management_system\pos_management_system\bin\Debug\context\pos_management_log.ldf
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\bin\Debug\context\pos_management.mdf
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\bin\Debug\context\pos_management_log.ldf
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\bin\Debug\pos_management_system.exe.config
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\bin\Debug\pos_management_system.exe
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\bin\Debug\pos_management_system.pdb
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\obj\Debug\pos_management_system.csprojResolveAssemblyReference.cache
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\obj\Debug\pos_management_system.Form1.resources
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\obj\Debug\pos_management_system.Forms.Customers.Customer.resources
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\obj\Debug\pos_management_system.Forms.Home.Home.resources
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\obj\Debug\pos_management_system.Forms.Layout.Layout.resources
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\obj\Debug\pos_management_system.Forms.users.resources
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\obj\Debug\pos_management_system.Properties.Resources.resources
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\obj\Debug\pos_management_system.csproj.GenerateResource.Cache
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\obj\Debug\pos_management_system.exe
+C:\Users\Developer8\Desktop\windows applications\pos_management\pos_management_system\obj\Debug\pos_management_system.pdb

@@ -12,6 +12,7 @@ namespace pos_management_system.controllers
     {
         private string string_connections = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\context\\pos_management.mdf;Integrated Security=True";
         private string str_comand = "";
+        private string command_type = "anything";
         private SqlDataAdapter da;
         private SqlConnection conn;
         BindingSource bsource = new BindingSource();
@@ -32,6 +33,8 @@ namespace pos_management_system.controllers
             }
             this.str_comand += " FROM " + from;
             this.str_comand += " " + conds;
+            this.da = new SqlDataAdapter(str_comand, conn);
+            this.command_type = "select";
             return this;
         }
         public mapper insert(string into, string [] passed_params,string [] bind_params) 
@@ -45,7 +48,10 @@ namespace pos_management_system.controllers
         }
         public mapper add_bind_values(string bind_variable,string bind_value) 
         {
-            this.cmd.Parameters.AddWithValue(bind_variable, bind_value);
+            if (this.command_type != "select")
+                this.cmd.Parameters.AddWithValue(bind_variable, bind_value);
+            else
+                this.da.SelectCommand.Parameters.AddWithValue(bind_variable, bind_value);
             return this;
         }
         public int ExecuteNonQuery() 
@@ -68,8 +74,9 @@ namespace pos_management_system.controllers
             this.str_comand = "DELETE FROM " + from;
             if(where.Length>0)
             {
-                this.str_comand += " " + where;
+                this.str_comand += " WHERE " + where;
             }
+            this.cmd = new SqlCommand(this.str_comand, this.conn);
             return this;
         }
         public mapper update(string table,string set,string where)
@@ -80,7 +87,7 @@ namespace pos_management_system.controllers
         }
         public BindingSource get()
         {
-            da = new SqlDataAdapter(str_comand, conn);
+            
             ds = new DataSet();
             SqlCommandBuilder commandBuilder = new SqlCommandBuilder(da);
             da.Fill(ds, "Bind");

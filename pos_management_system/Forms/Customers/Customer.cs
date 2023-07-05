@@ -15,9 +15,8 @@ namespace pos_management_system.Forms.Customers
         controllers.mapper mapper;
         controllers.translator trans;
         private controllers.Helper Helper;
-        public Customer()
+        public Customer(): base()
         {
-            controllers.translator.lang ="ar";
             Helper = new controllers.Helper();
             InitializeComponent();
             notifyIcon1.Icon = SystemIcons.Application;
@@ -25,16 +24,17 @@ namespace pos_management_system.Forms.Customers
             load_customers();
             load_lang();
             Helper.load_layout(this);
-        }
+        }   
         public void load_customers() {
             mapper = new controllers.mapper();
             string[] select = new string[]{};
             dataGridView1.DataSource = mapper.select("[Customers]", select, "").get();
             button3.Enabled = false;
+            button2.Enabled = false;
         }
         private void dataGridView1_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow.Cells[0].Value.ToString().Length == 0)
+            if (dataGridView1.CurrentRow==null||dataGridView1.CurrentRow.Cells[0].Value.ToString().Length == 0)
             {
                 return;
             }
@@ -50,6 +50,7 @@ namespace pos_management_system.Forms.Customers
             textBox6.Text = phone;
             button1.Enabled = false;
             button3.Enabled = true;
+            button2.Enabled = true;
         }
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -60,7 +61,7 @@ namespace pos_management_system.Forms.Customers
                 e.SuppressKeyPress = true;
             }
             string[] select = new string[] { };
-            dataGridView1.DataSource = mapper.select("[Customers]", select, " WHERE name like '%" + textBox1.Text + "%' OR email like '%" + textBox1.Text + "%' OR address like '%" + textBox1.Text + "%' OR phone like '%" + textBox1.Text + "%' ").get();
+            dataGridView1.DataSource = mapper.select("[Customers]", select, " WHERE name like '%" + textBox1.Text + "%' OR email like '%" + textBox1.Text + "%' OR address like '%" + textBox1.Text + "%' OR phone like '%" + textBox1.Text + "%' OR id like '%" + textBox1.Text + "%' ").get();
         }
         private void button4_Click(object sender, EventArgs e)
         {
@@ -97,6 +98,7 @@ namespace pos_management_system.Forms.Customers
             textBox6.Text = "";
             button1.Enabled = true;
             button3.Enabled = false;
+            button2.Enabled = false;
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -127,8 +129,30 @@ namespace pos_management_system.Forms.Customers
             label6.Text = trans.get("phone");
             button1.Text = trans.get("create_new");
             button3.Text = trans.get("update");
+            button2.Text = trans.get("delete");
             button4.Text = trans.get("cancel");
             groupBox2.Text = trans.get("customer_info");
+        }
+        public override BaseClass.BaseForm get_instance()
+        {
+            return new Customers.Customer();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            mapper = new controllers.mapper();
+            string id = textBox2.Text;
+            if (id.Length == 0)
+            {
+                MessageBox.Show("");
+                return;
+            }
+            mapper.delete("[Customers]", "id = @id");
+            mapper.add_bind_values("@id", id);
+           int deleted= mapper.ExecuteNonQuery();
+           MessageBox.Show(deleted.ToString());
+           load_customers();
+           clear_controls();
         }
     }
 }

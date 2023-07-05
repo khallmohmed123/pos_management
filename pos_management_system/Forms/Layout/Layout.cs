@@ -10,12 +10,14 @@ using System.Windows.Forms;
 
 namespace pos_management_system.Forms.Layout
 {
-    public partial class Layout : Form
+    public partial class Layout : Forms.BaseClass.BaseForm
     {
-       
+        private controllers.translator trans;
         public Layout()
         {
             InitializeComponent();
+            trans = new controllers.translator();
+            this.load_lang_default();
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
@@ -26,5 +28,11 @@ namespace pos_management_system.Forms.Layout
                 e.SuppressKeyPress = true;
             }   
         }
+        public void load_lang_default()
+        {
+            groupBox1.Text = trans.get("advanced_search");
+            label1.Text = trans.get("search");
+        }
+
     }
 }
