@@ -137,7 +137,6 @@ namespace pos_management_system.Forms.Customers
         {
             return new Customers.Customer();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             mapper = new controllers.mapper();

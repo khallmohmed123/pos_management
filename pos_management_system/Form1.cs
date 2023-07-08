@@ -23,18 +23,7 @@ namespace pos_management_system
             InitializeComponent();
             load_lang();
             load_layout();
-        }
-        private void btnen_Click(object sender, EventArgs e)
-        {
-            controllers.translator.lang = "en";
-            load_lang();
-            load_layout();
-        }
-        private void btnar_Click(object sender, EventArgs e)
-        {
-            controllers.translator.lang = "ar";
-            load_lang();
-            load_layout();
+            comboBox1.SelectedIndex = 0;
         }
         private void load_lang() {
             txtusername.Text = trans.get("username");
@@ -42,6 +31,7 @@ namespace pos_management_system
             btnlogin.Text = trans.get("login");
             btnclose.Text = trans.get("close");
             label1.Text = trans.get("login");
+            label2.Text = trans.get("language");
         }
         private void btnclose_Click(object sender, EventArgs e)
         {
@@ -77,7 +67,6 @@ namespace pos_management_system
         private void load_layout() {
             Helper.load_layout(this);
         }
-
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -86,7 +75,6 @@ namespace pos_management_system
                 e.SuppressKeyPress = true;
             }   
         }
-
         private void textBox2_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -94,6 +82,34 @@ namespace pos_management_system
                 SendKeys.Send("{TAB}");
                 e.SuppressKeyPress = true;
             }   
+        }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cmb = (ComboBox)sender;
+            int selectedIndex = cmb.SelectedIndex;
+            switch (selectedIndex)
+            {
+                case 0:
+                    controllers.translator.lang = "en";
+                    load_lang();
+                    load_layout();
+                    break;
+                case 1:
+                    controllers.translator.lang = "ar";
+                    load_lang();
+                    load_layout();
+                    break;
+                case 2:
+                    controllers.translator.lang = "ru";
+                    load_lang();
+                    load_layout();
+                    break;
+                case 3:
+                    controllers.translator.lang = "fr";
+                    load_lang();
+                    load_layout();
+                    break;
+            }
         }
     }
 }

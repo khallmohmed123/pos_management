@@ -66,7 +66,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\category.cs" />
+    <Compile Include="controllers\Categories.cs" />
+    <Compile Include="controllers\Category_Items.cs" />
     <Compile Include="controllers\Helper.cs" />
+    <Compile Include="controllers\Items.cs" />
     <Compile Include="controllers\language.cs" />
     <Compile Include="controllers\mapper.cs" />
     <Compile Include="controllers\translator.cs" />
@@ -83,6 +87,12 @@
     <Compile Include="Forms\BaseClass\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Categories\Categories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Categories\Categories.Designer.cs">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Customers\Customer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,22 +105,31 @@
     <Compile Include="Forms\Home\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Items\Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Items\Items.Designer.cs">
+      <DependentUpon>Items.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Layout\Layout.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Layout\Layout.Designer.cs">
       <DependentUpon>Layout.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\users.cs">
+    <Compile Include="Forms\Users\Users.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\users.Designer.cs">
-      <DependentUpon>users.cs</DependentUpon>
+    <Compile Include="Forms\Users\Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Categories\Categories.resx">
+      <DependentUpon>Categories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customers\Customer.resx">
       <DependentUpon>Customer.cs</DependentUpon>
@@ -118,11 +137,14 @@
     <EmbeddedResource Include="Forms\Home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Items\Items.resx">
+      <DependentUpon>Items.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Layout\Layout.resx">
       <DependentUpon>Layout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\users.resx">
-      <DependentUpon>users.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Users\Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

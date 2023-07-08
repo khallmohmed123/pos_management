@@ -29,24 +29,12 @@ namespace pos_management_system.Forms.Home
             homeToolStripMenuItem.Text = trans.get("home");
             customersToolStripMenuItem.Text = trans.get("customers");
             all2ToolStripMenuItem.Text = trans.get("all");
-            updateToolStripMenuItem.Text = trans.get("update");
-            deleteToolStripMenuItem.Text = trans.get("delete");
-            newToolStripMenuItem1.Text = trans.get("new");
             itemsToolStripMenuItem.Text = trans.get("items");
             allToolStripMenuItem.Text=trans.get("all");
-            newToolStripMenuItem2.Text=trans.get("new");
-            updateToolStripMenuItem1.Text=trans.get("update");
-            newToolStripMenuItem3.Text=trans.get("new");
             billsToolStripMenuItem.Text=trans.get("bills");
             allToolStripMenuItem1.Text=trans.get("all");
-            updateToolStripMenuItem2.Text=trans.get("update");
-            deleteToolStripMenuItem1.Text=trans.get("delete");
-            newToolStripMenuItem4.Text=trans.get("new");
             usersToolStripMenuItem.Text=trans.get("users");
             allToolStripMenuItem2.Text=trans.get("all");
-            deleteToolStripMenuItem2.Text=trans.get("delete");
-            newToolStripMenuItem5.Text=trans.get("new");
-            updateToolStripMenuItem3.Text = trans.get("update");
             languageToolStripMenuItem.Text = trans.get("language");
             createToolStripMenuItem.Text = trans.get("all");
             categoriesToolStripMenuItem.Text = trans.get("categories");
@@ -81,7 +69,9 @@ namespace pos_management_system.Forms.Home
 
         private void createToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Categories.Categories categories = new Categories.Categories();
+            active_form = categories;
+            Helper.AppendChildToFrame(this.panel3, categories);
         }
 
         private void عربيToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -98,6 +88,41 @@ namespace pos_management_system.Forms.Home
             load_lang();
             Helper.AppendChildToFrame(this.panel3, active_form.get_instance());
             load_layout();
+        }
+
+        private void ruToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controllers.translator.lang = "ru";
+            load_lang();
+            Helper.AppendChildToFrame(this.panel3, active_form.get_instance());
+            load_layout();
+        }
+
+        private void frToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controllers.translator.lang = "fr";
+            load_lang();
+            Helper.AppendChildToFrame(this.panel3, active_form.get_instance());
+            load_layout();
+        }
+
+        private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Helper.maximize(this);
+        }
+
+        private void allToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Items.Items Items = new Items.Items();
+            active_form = Items;
+            Helper.AppendChildToFrame(this.panel3, Items);
+        }
+
+        private void allToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Users.Users Users = new Users.Users();
+            active_form = Users;
+            Helper.AppendChildToFrame(this.panel3, Users);
         }
     }
 }

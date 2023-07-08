@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnen = new System.Windows.Forms.Button();
-            this.btnar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtusername = new System.Windows.Forms.Label();
@@ -39,6 +37,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnlogin = new System.Windows.Forms.Button();
             this.btnclose = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -46,33 +46,13 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.btnen);
-            this.panel1.Controls.Add(this.btnar);
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(519, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(174, 628);
-            this.panel1.TabIndex = 0;
-            // 
-            // btnen
-            // 
-            this.btnen.Location = new System.Drawing.Point(94, 13);
-            this.btnen.Name = "btnen";
-            this.btnen.Size = new System.Drawing.Size(75, 23);
-            this.btnen.TabIndex = 1;
-            this.btnen.Text = "english";
-            this.btnen.UseVisualStyleBackColor = true;
-            this.btnen.Click += new System.EventHandler(this.btnen_Click);
-            // 
-            // btnar
-            // 
-            this.btnar.Location = new System.Drawing.Point(12, 12);
-            this.btnar.Name = "btnar";
-            this.btnar.Size = new System.Drawing.Size(75, 23);
-            this.btnar.TabIndex = 0;
-            this.btnar.Text = "عربي";
-            this.btnar.UseVisualStyleBackColor = true;
-            this.btnar.Click += new System.EventHandler(this.btnar_Click);
+            this.panel1.TabIndex = 3;
             // 
             // panel2
             // 
@@ -82,7 +62,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(519, 100);
-            this.panel2.TabIndex = 1;
+            this.panel2.TabIndex = 2;
             // 
             // label1
             // 
@@ -113,7 +93,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(276, 34);
-            this.textBox1.TabIndex = 3;
+            this.textBox1.TabIndex = 0;
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // txtpass
@@ -135,7 +115,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(276, 34);
-            this.textBox2.TabIndex = 3;
+            this.textBox2.TabIndex = 1;
             this.textBox2.UseSystemPasswordChar = true;
             this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
@@ -144,7 +124,7 @@
             this.btnlogin.Location = new System.Drawing.Point(254, 376);
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(129, 37);
-            this.btnlogin.TabIndex = 4;
+            this.btnlogin.TabIndex = 2;
             this.btnlogin.Text = "button1";
             this.btnlogin.UseVisualStyleBackColor = true;
             this.btnlogin.Click += new System.EventHandler(this.btnlogin_Click);
@@ -154,10 +134,33 @@
             this.btnclose.Location = new System.Drawing.Point(107, 376);
             this.btnclose.Name = "btnclose";
             this.btnclose.Size = new System.Drawing.Size(141, 37);
-            this.btnclose.TabIndex = 5;
+            this.btnclose.TabIndex = 3;
             this.btnclose.Text = "button2";
             this.btnclose.UseVisualStyleBackColor = true;
             this.btnclose.Click += new System.EventHandler(this.btnclose_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "label2";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "EN",
+            "عربي",
+            "RU",
+            "FR"});
+            this.comboBox1.Location = new System.Drawing.Point(74, 9);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(95, 21);
+            this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -179,6 +182,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -197,8 +201,8 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnlogin;
         private System.Windows.Forms.Button btnclose;
-        private System.Windows.Forms.Button btnen;
-        private System.Windows.Forms.Button btnar;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

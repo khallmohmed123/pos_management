@@ -18,12 +18,13 @@ namespace pos_management_system.controllers
         BindingSource bsource = new BindingSource();
         DataSet ds = null;
         SqlCommand cmd;
+        bool use_last_id_inserted = false;
         public mapper()
         {
             conn = new SqlConnection(string_connections);
             this.conn.Open();
         }
-        public mapper select(string from,string [] params_data,string conds) 
+        public mapper select(string from, string[] params_data, string conds)
         {
             this.str_comand = " SELECT ";
             this.str_comand += String.Join(" , ", params_data);
@@ -37,16 +38,26 @@ namespace pos_management_system.controllers
             this.command_type = "select";
             return this;
         }
-        public mapper insert(string into, string [] passed_params,string [] bind_params) 
+        public mapper custom_select(string sql) {
+
+            this.da = new SqlDataAdapter(sql, conn);
+            this.command_type = "select";
+            return this;
+        }
+        public mapper insert(string into, string[] passed_params, string[] bind_params,bool retun_id=false)
         {
+            this.use_last_id_inserted = retun_id;
             this.str_comand = "INSERT INTO " + into;
-            if(passed_params.Length>0)this.str_comand+=" ("+String.Join(" , ", passed_params)+") ";
+            if (passed_params.Length > 0) this.str_comand += " (" + String.Join(" , ", passed_params) + ") ";
+            if (retun_id)
+                this.str_comand += " OUTPUT INSERTED.ID ";
             this.str_comand += " values ";
-            if (bind_params.Length>0)this.str_comand += " ( " + String.Join(" , ", bind_params)+" ) ";
+            if (bind_params.Length > 0) this.str_comand += " ( " + String.Join(" , ", bind_params) + " ) ";
+            
             this.cmd = new SqlCommand(this.str_comand, this.conn);
             return this;
         }
-        public mapper add_bind_values(string bind_variable,string bind_value) 
+        public mapper add_bind_values(string bind_variable, string bind_value)
         {
             if (this.command_type != "select")
                 this.cmd.Parameters.AddWithValue(bind_variable, bind_value);
@@ -54,14 +65,24 @@ namespace pos_management_system.controllers
                 this.da.SelectCommand.Parameters.AddWithValue(bind_variable, bind_value);
             return this;
         }
-        public int ExecuteNonQuery() 
+        public int ExecuteNonQuery()
         {
             try
             {
-                this.cmd.ExecuteNonQuery();
-                this.conn.Dispose();
-                this.conn.Close();
-                return 1;
+                if (!this.use_last_id_inserted)
+                {
+                    int id = this.cmd.ExecuteNonQuery();
+                    this.conn.Dispose();
+                    this.conn.Close();
+                    return 1;
+                }
+                else
+                {
+                    Int32 newId = (Int32)cmd.ExecuteScalar();
+                    this.conn.Dispose();
+                    this.conn.Close();
+                    return newId;
+                }
             }
             catch (Exception e)
             {
@@ -72,14 +93,14 @@ namespace pos_management_system.controllers
         public mapper delete(string from, string where)
         {
             this.str_comand = "DELETE FROM " + from;
-            if(where.Length>0)
+            if (where.Length > 0)
             {
                 this.str_comand += " WHERE " + where;
             }
             this.cmd = new SqlCommand(this.str_comand, this.conn);
             return this;
         }
-        public mapper update(string table,string set,string where)
+        public mapper update(string table, string set, string where)
         {
             this.str_comand = "UPDATE " + table + " SET " + set + " WHERE " + where;
             this.cmd = new SqlCommand(this.str_comand, this.conn);
@@ -87,7 +108,7 @@ namespace pos_management_system.controllers
         }
         public BindingSource get()
         {
-            
+
             ds = new DataSet();
             SqlCommandBuilder commandBuilder = new SqlCommandBuilder(da);
             da.Fill(ds, "Bind");
