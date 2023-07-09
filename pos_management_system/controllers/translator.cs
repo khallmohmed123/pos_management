@@ -18,12 +18,15 @@ namespace pos_management_system.controllers
             multilang.Add("password", new language("كلمه المرور", "Pass Word", "пароль", "Mot de passe"));
             multilang.Add("exit_app", new language("هل تريد فعلا الخروج من هذا التطبيق ؟", "are you need to exit this application ?", "вам нужно выйти из этого приложения ?", "devez-vous quitter cette application ?"));
             multilang.Add("home", new language("الصفحه الرئيسيه", "home", "дом", "maison"));
+            multilang.Add("add", new language("يضيف", "add", "добавлять", "ajouter"));
             multilang.Add("customers", new language("العملاء", "customers", "клиенты", "clients"));
             multilang.Add("all", new language("الكل", "all", "все", "tout"));
             multilang.Add("new", new language("جديد", "new", "новый", "Nouveau"));
             multilang.Add("update", new language("تعديل", "update", "обновлять", "mise à jour"));
             multilang.Add("delete", new language("مسح", "delete", "удалить", "supprimer"));
             multilang.Add("items", new language("منتجات", "items", "предметы", "articles"));
+            multilang.Add("quantity", new language("كميه", "quantity", "количество", "quantité"));
+            multilang.Add("sale", new language("أُوكَازيُون", "sale", "распродажа", "vente"));
             multilang.Add("bills", new language("فواتير", "bills", "счета", "factures"));
             multilang.Add("users", new language("مستخدمون", "users", "пользователи", "utilisateurs"));
             multilang.Add("language", new language("اللغه", "language", "язык", "langue"));
@@ -47,6 +50,7 @@ namespace pos_management_system.controllers
             multilang.Add("category", new language("فئة", "category", "категория", "catégorie"));
             multilang.Add("role", new language("دور", "role", "роль", "rôle"));
             multilang.Add("items_info", new language("معلومات العناصر", "Items Info", "Информация о предметах", "Informations sur les articles"));
+            multilang.Add("bill_info", new language(" معلومات الفاتورة ", "bill info", "информация о счете", "informations sur la facture"));
         }
         public string get(string value) 
         {

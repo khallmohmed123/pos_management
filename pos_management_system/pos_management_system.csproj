@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\category.cs" />
+    <Compile Include="Classes\Items.cs" />
     <Compile Include="controllers\Categories.cs" />
     <Compile Include="controllers\Category_Items.cs" />
     <Compile Include="controllers\Helper.cs" />
@@ -86,6 +87,12 @@
     </Compile>
     <Compile Include="Forms\BaseClass\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Bills\Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Bills\Bill.Designer.cs">
+      <DependentUpon>Bill.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Categories\Categories.cs">
       <SubType>Form</SubType>
@@ -127,6 +134,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Bills\Bill.resx">
+      <DependentUpon>Bill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Categories\Categories.resx">
       <DependentUpon>Categories.cs</DependentUpon>

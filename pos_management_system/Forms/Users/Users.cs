@@ -180,7 +180,6 @@ namespace pos_management_system.Forms.Users
             load_users();
             clear_controls();
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             mapper = new controllers.mapper();

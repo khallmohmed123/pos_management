@@ -190,7 +190,7 @@
             // all2ToolStripMenuItem
             // 
             this.all2ToolStripMenuItem.Name = "all2ToolStripMenuItem";
-            this.all2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.all2ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.all2ToolStripMenuItem.Text = "all";
             this.all2ToolStripMenuItem.Click += new System.EventHandler(this.all2ToolStripMenuItem_Click);
             // 
@@ -205,7 +205,7 @@
             // createToolStripMenuItem
             // 
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.createToolStripMenuItem.Text = "all";
             this.createToolStripMenuItem.Click += new System.EventHandler(this.createToolStripMenuItem_Click);
             // 
@@ -220,7 +220,7 @@
             // allToolStripMenuItem
             // 
             this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-            this.allToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.allToolStripMenuItem.Text = "all";
             this.allToolStripMenuItem.Click += new System.EventHandler(this.allToolStripMenuItem_Click);
             // 
@@ -237,6 +237,7 @@
             this.allToolStripMenuItem1.Name = "allToolStripMenuItem1";
             this.allToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.allToolStripMenuItem1.Text = "all";
+            this.allToolStripMenuItem1.Click += new System.EventHandler(this.allToolStripMenuItem1_Click);
             // 
             // usersToolStripMenuItem
             // 
@@ -249,7 +250,7 @@
             // allToolStripMenuItem2
             // 
             this.allToolStripMenuItem2.Name = "allToolStripMenuItem2";
-            this.allToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.allToolStripMenuItem2.Size = new System.Drawing.Size(86, 22);
             this.allToolStripMenuItem2.Text = "all";
             this.allToolStripMenuItem2.Click += new System.EventHandler(this.allToolStripMenuItem2_Click);
             // 
@@ -267,28 +268,28 @@
             // عربيToolStripMenuItem
             // 
             this.عربيToolStripMenuItem.Name = "عربيToolStripMenuItem";
-            this.عربيToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.عربيToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.عربيToolStripMenuItem.Text = "عربي";
             this.عربيToolStripMenuItem.Click += new System.EventHandler(this.عربيToolStripMenuItem_Click_1);
             // 
             // englishToolStripMenuItem
             // 
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.englishToolStripMenuItem.Text = "English";
             this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click_1);
             // 
             // ruToolStripMenuItem
             // 
             this.ruToolStripMenuItem.Name = "ruToolStripMenuItem";
-            this.ruToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ruToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.ruToolStripMenuItem.Text = "ru";
             this.ruToolStripMenuItem.Click += new System.EventHandler(this.ruToolStripMenuItem_Click);
             // 
             // frToolStripMenuItem
             // 
             this.frToolStripMenuItem.Name = "frToolStripMenuItem";
-            this.frToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.frToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.frToolStripMenuItem.Text = "fr";
             this.frToolStripMenuItem.Click += new System.EventHandler(this.frToolStripMenuItem_Click);
             // 

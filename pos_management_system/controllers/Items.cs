@@ -114,5 +114,19 @@ namespace pos_management_system.controllers
             deleted = true;
             return deleted;
         }
+        public BindingSource get_items_for_categories(int id) 
+        {
+            mapper = new controllers.mapper();
+            BindingSource bd=new BindingSource();
+            string sql = @"SELECT [Item].[Id] 'id' , [Item].[title] 'title',[Item].[sales_price] 'sales price',[Item].[regular_price] 'regular price' FROM [Item] 
+            INNER JOIN [item_category]
+            ON [item_category].[item_id]=[Item].[id]
+            INNER JOIN [category]
+            ON [item_category].[category_id]=[category].[id]
+            AND [item_category].[category_id]=" + id;
+            mapper.custom_select(sql);
+            bd = mapper.get();
+            return bd;
+        }
     }
 }

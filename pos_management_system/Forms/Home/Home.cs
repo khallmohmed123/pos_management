@@ -124,5 +124,12 @@ namespace pos_management_system.Forms.Home
             active_form = Users;
             Helper.AppendChildToFrame(this.panel3, Users);
         }
+
+        private void allToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Bills.Bill Bill = new Bills.Bill();
+            active_form = Bill;
+            Helper.AppendChildToFrame(this.panel3, Bill);
+        }
     }
 }
