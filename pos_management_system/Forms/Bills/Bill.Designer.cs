@@ -88,7 +88,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.None;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Size = new System.Drawing.Size(2088, 57);
+            this.groupBox1.Size = new System.Drawing.Size(2550, 57);
             this.groupBox1.TabIndex = 0;
             // 
             // label1
@@ -179,7 +179,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(263, 207);
+            this.textBox5.Location = new System.Drawing.Point(263, 209);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(224, 22);
             this.textBox5.TabIndex = 18;
@@ -274,6 +274,7 @@
             this.button3.TabIndex = 1;
             this.button3.Text = "Update";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -284,6 +285,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Delete";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 

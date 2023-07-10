@@ -17,6 +17,7 @@ namespace pos_management_system.Forms.Bills
         private controllers.Helper Helper;
         Dictionary<int, Classes.category> categories = new Dictionary<int, Classes.category>();
         Dictionary<int, Classes.Items> Items = new Dictionary<int, Classes.Items>();
+        Dictionary<int, Classes.Bills> Bills = new Dictionary<int, Classes.Bills>();
         public Bill()
         {
             InitializeComponent();
@@ -24,6 +25,28 @@ namespace pos_management_system.Forms.Bills
             Helper = new controllers.Helper();
             load_lang();
             load_categories();
+            default_release();
+        }
+        private void default_release() {
+            dataGridView1.Rows.Clear();
+            BindingSource bs = new BindingSource();
+            //object bind_item = new
+            //{
+            //    number,
+            //    category,
+            //    item_name,
+            //    quantity,
+            //    sale_type,
+            //    sale_value,
+            //    tax_type,
+            //    tax_value,
+            //    sale_price,
+            //    regulare_price,
+            //    price_discount,
+            //    total
+            //};
+            //bs.Add(bind_item);
+            dataGridView1.DataSource = bs;
         }
         public override BaseClass.BaseForm get_instance()
         {
@@ -60,7 +83,19 @@ namespace pos_management_system.Forms.Bills
                 errors = true;
             }
             data_loaded_prices();
-
+            int index=dataGridView1.Rows.Count;
+            //dataGridView1.Rows.Add(index+1,categories[comboBox1.SelectedIndex].title, Items[comboBox2.SelectedIndex].title,textBox3.Text,comboBox3.Text,textBox4.Text,comboBox4.Text,textBox5.Text,textBox7.Text,textBox8.Text,textBox2.Text,textBox6.Text);
+            if (textBox4.Text.Length == 0)
+                textBox4.Text = "0.0";
+            if (textBox5.Text.Length == 0)
+                textBox5.Text = "0.0";
+            if (textBox2.Text.Length == 0)
+                textBox2.Text = "0.0";
+            if (textBox6.Text.Length == 0)
+                textBox6.Text = "0.0";
+            Bills.Add(index, new Classes.Bills(categories[comboBox1.SelectedIndex],Items[comboBox2.SelectedIndex],double.Parse(textBox4.Text),comboBox3.Text,double.Parse(textBox5.Text),comboBox4.Text,double.Parse(textBox2.Text),double.Parse(textBox6.Text),int.Parse(textBox3.Text)));
+            reload_data_grid_view();
+            clear_controls();
         }
         public void load_lang()
         {
@@ -108,7 +143,6 @@ namespace pos_management_system.Forms.Bills
             }
             if(selected_category<=0)
             {
-                MessageBox.Show("error on select category");
                 return;
             }
             controllers.Items items = new controllers.Items();
@@ -135,6 +169,7 @@ namespace pos_management_system.Forms.Bills
             {
                 e.Handled = true;
             }
+            data_loaded_prices();
         }
         private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -155,7 +190,11 @@ namespace pos_management_system.Forms.Bills
             if (error)
                 errorProvider1.SetError(comboBox3, "you must choose the type of sale");
             else
+            {
                 errorProvider1.Clear();
+                data_loaded_prices();
+            }
+                
         }
         private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -175,7 +214,10 @@ namespace pos_management_system.Forms.Bills
             if (error)
                 errorProvider1.SetError(comboBox4, "you must choose the type of Tax");
             else
+            {
                 errorProvider1.Clear();
+                data_loaded_prices();
+            }
         }
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -235,6 +277,8 @@ namespace pos_management_system.Forms.Bills
                     return;
                 }
             }
+            if (textBox2.Text.Length == 0)
+                textBox2.Text = "0.0";
             textBox6.Text = ((price+tax_price)-discount_price).ToString();
         }
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -247,6 +291,9 @@ namespace pos_management_system.Forms.Bills
         }
         private void button4_Click(object sender, EventArgs e)
         {
+            clear_controls();
+        }
+        private void clear_controls() {
             comboBox1.SelectedIndex = -1;
             comboBox2.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
@@ -259,13 +306,215 @@ namespace pos_management_system.Forms.Bills
             textBox6.Text = "";
             textBox7.Text = "";
             textBox8.Text = "";
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            button1.Enabled = false;
+            button2.Enabled = true;
+            button3.Enabled = true;
             if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.Cells[0].Value.ToString().Length == 0)
             {
                 return;
             }
+            int index = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString())-1;
+            Classes.category ca = Bills[index].category;
+            Classes.Items it = Bills[index].item;
+            double sale=Bills[index].sale;
+            string sale_type = Bills[index].sale_type;
+            double tax = Bills[index].tax;
+            string tax_type = Bills[index].tax_type;
+            double discount = Bills[index].discount;
+            double total_price = Bills[index].total_price;
+            foreach (KeyValuePair<int, Classes.category> ca_choose in categories)
+            {
+                if (ca_choose.Value.id == ca.id)
+                {
+                    comboBox1.SelectedIndex = ca_choose.Key;
+                    break;
+                }
+            }
+            foreach (KeyValuePair<int, Classes.Items> item_a in Items)
+            {
+                if (it.id == item_a.Value.id)
+                {
+                    comboBox2.SelectedIndex = item_a.Key;
+                    break;
+                }
+            }
+            if(sale>0.0)
+            {
+                textBox4.Text = sale.ToString();
+            }
+            if (sale_type.Length > 0)
+            {
+                switch (sale_type)
+                {
+                    case "%":
+                        comboBox3.SelectedIndex = 0;
+                        break;
+                    case "$":
+                        comboBox3.SelectedIndex = 1;
+                        break;
+                }
+            }
+
+            if (tax > 0.0)
+            {
+                textBox5.Text = tax.ToString();
+            }
+            if (tax_type.Length > 0)
+            {
+                switch (tax_type)
+                {
+                    case "%":
+                        comboBox4.SelectedIndex = 0;
+                        break;
+                    case "$":
+                        comboBox4.SelectedIndex = 1;
+                        break;
+                }
+            }
+            textBox2.Text = discount.ToString();
+            textBox6.Text = total_price.ToString();
+            textBox7.Text = it.sales_price.ToString();
+            textBox8.Text = it.regular_price.ToString();
+            textBox3.Text = Bills[index].quantity.ToString();
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            bool errors = false;
+            if (comboBox1.SelectedIndex < 0)
+            {
+                errorProvider1.SetError(comboBox1, "the categories is required");
+                errors = true;
+            }
+            if (comboBox2.SelectedIndex < 0)
+            {
+                errorProvider1.SetError(comboBox2, "the Items is required");
+                errors = true;
+            }
+            if (textBox3.Text.Length <= 0)
+            {
+                errorProvider1.SetError(textBox3, "the quantity is required");
+                errors = true;
+            }
+            int index = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()) - 1;
+            data_loaded_prices();
+            BindingSource Bill_item = new BindingSource();
+            DataGridViewRow newDataRow = dataGridView1.Rows[index];
+            newDataRow.Cells[0].Value = index + 1;
+            newDataRow.Cells[1].Value = categories[comboBox1.SelectedIndex].title;
+            newDataRow.Cells[2].Value = Items[comboBox2.SelectedIndex].title;
+            newDataRow.Cells[3].Value = textBox3.Text;
+            newDataRow.Cells[4].Value = comboBox3.Text;
+            newDataRow.Cells[5].Value = textBox4.Text;
+            newDataRow.Cells[6].Value = comboBox4.Text;
+            newDataRow.Cells[7].Value = textBox5.Text;
+            newDataRow.Cells[8].Value = textBox7.Text;
+            newDataRow.Cells[9].Value = textBox8.Text;
+            newDataRow.Cells[10].Value = textBox2.Text;
+            newDataRow.Cells[11].Value = textBox6.Text;
+            if (textBox4.Text.Length == 0)
+                textBox4.Text = "0.0";
+            if (textBox5.Text.Length == 0)
+                textBox5.Text = "0.0";
+            if (textBox2.Text.Length == 0)
+                textBox2.Text = "0.0";
+            if (textBox6.Text.Length == 0)
+                textBox6.Text = "0.0";
+            Bills[index]=new Classes.Bills(
+                categories[comboBox1.SelectedIndex],
+                Items[comboBox2.SelectedIndex],
+                double.Parse(textBox4.Text),
+                comboBox3.Text,
+                double.Parse(textBox5.Text),
+                comboBox4.Text,
+                double.Parse(textBox2.Text),
+                double.Parse(textBox6.Text),
+                int.Parse(textBox3.Text)
+                );
+            clear_controls();
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int index = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()) - 1;
+            Bills.Remove(index);
+            dataGridView1.Rows.RemoveAt(index);
+            refactor();
+        }
+        private void refactor() 
+        {
+           Dictionary<int, Classes.Bills> Bind_Bills = new Dictionary<int, Classes.Bills>();
+           BindingSource bs = new BindingSource();
+           int index = 0;
+           foreach(KeyValuePair<int,Classes.Bills> bill in Bills)
+           {
+               Bind_Bills.Add(index, new Classes.Bills(bill.Value.category,bill.Value.item,bill.Value.sale,bill.Value.sale_type,bill.Value.tax,bill.Value.tax_type,bill.Value.discount,bill.Value.total_price,bill.Value.quantity));
+               object bind_item = new
+               {
+                   number = index + 1,
+                   category = bill.Value.category.title,
+                   item_name = bill.Value.item.title,
+                   quantity = bill.Value.quantity,
+                   sale_type = bill.Value.sale_type,
+                   sale_value = bill.Value.sale,
+                   tax_type = bill.Value.tax_type,
+                   tax_value = bill.Value.tax,
+                   sale_price = bill.Value.item.sales_price,
+                   regulare_price = bill.Value.item.regular_price,
+                   price_discount = bill.Value.discount,
+                   total = bill.Value.total_price
+               };
+               bs.Add(bind_item);
+               index++;
+           }
+           if (index == 0)
+           {
+            //   bs.Add(bind_item);
+           }
+           if (index > 0)
+           {
+               dataGridView1.Rows.Clear();
+               dataGridView1.Columns.Clear();
+               dataGridView1.DataSource = bs;
+               dataGridView1.Update();
+               dataGridView1.Refresh();
+           }
+           Bills.Clear();
+           Bills =new Dictionary<int,Classes.Bills>(Bind_Bills);
+        }
+
+        private void reload_data_grid_view() {
+            int index = 0;
+            BindingSource bs = new BindingSource();
+            foreach (KeyValuePair<int, Classes.Bills> bill in Bills)
+            {
+                object bind_item = new
+                {
+                    number = index + 1,
+                    category = bill.Value.category.title,
+                    item_name = bill.Value.item.title,
+                    quantity = bill.Value.quantity,
+                    sale_type = bill.Value.sale_type,
+                    sale_value = bill.Value.sale,
+                    tax_type = bill.Value.tax_type,
+                    tax_value = bill.Value.tax,
+                    sale_price = bill.Value.item.sales_price,
+                    regulare_price = bill.Value.item.regular_price,
+                    price_discount = bill.Value.discount,
+                    total = bill.Value.total_price
+                };
+                bs.Add(bind_item);
+                index++;
+            }
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+            dataGridView1.DataSource = bs;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
         }
     }
 }

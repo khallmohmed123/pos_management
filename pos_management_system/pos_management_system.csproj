@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Bills.cs" />
     <Compile Include="Classes\category.cs" />
     <Compile Include="Classes\Items.cs" />
     <Compile Include="controllers\Categories.cs" />
