@@ -57,6 +57,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -76,7 +77,7 @@
             // 
             // panel1
             // 
-            this.panel1.Size = new System.Drawing.Size(1081, 57);
+            this.panel1.Size = new System.Drawing.Size(1083, 57);
             // 
             // pictureBox1
             // 
@@ -88,7 +89,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.None;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Size = new System.Drawing.Size(2550, 57);
+            this.groupBox1.Size = new System.Drawing.Size(2629, 57);
             this.groupBox1.TabIndex = 0;
             // 
             // label1
@@ -118,7 +119,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1081, 462);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1083, 460);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -130,12 +131,13 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(534, 456);
+            this.dataGridView1.Size = new System.Drawing.Size(535, 454);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.textBox6);
             this.groupBox2.Controls.Add(this.textBox5);
             this.groupBox2.Controls.Add(this.textBox8);
@@ -162,9 +164,9 @@
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.groupBox2.Location = new System.Drawing.Point(543, 3);
+            this.groupBox2.Location = new System.Drawing.Point(544, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(535, 456);
+            this.groupBox2.Size = new System.Drawing.Size(536, 454);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bill Info";
@@ -408,11 +410,21 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(263, 383);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(224, 62);
+            this.button5.TabIndex = 24;
+            this.button5.Text = "Make Bill";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Bill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1081, 519);
+            this.ClientSize = new System.Drawing.Size(1083, 517);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Name = "Bill";
@@ -463,5 +475,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button button5;
     }
 }
