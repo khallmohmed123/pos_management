@@ -30,22 +30,6 @@ namespace pos_management_system.Forms.Bills
         private void default_release() {
             dataGridView1.Rows.Clear();
             BindingSource bs = new BindingSource();
-            //object bind_item = new
-            //{
-            //    number,
-            //    category,
-            //    item_name,
-            //    quantity,
-            //    sale_type,
-            //    sale_value,
-            //    tax_type,
-            //    tax_value,
-            //    sale_price,
-            //    regulare_price,
-            //    price_discount,
-            //    total
-            //};
-            //bs.Add(bind_item);
             dataGridView1.DataSource = bs;
         }
         public override BaseClass.BaseForm get_instance()
@@ -403,20 +387,6 @@ namespace pos_management_system.Forms.Bills
             }
             int index = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()) - 1;
             data_loaded_prices();
-            //BindingSource Bill_item = new BindingSource();
-            //DataGridViewRow newDataRow = dataGridView1.Rows[index];
-            //newDataRow.Cells[0].Value = index + 1;
-            //newDataRow.Cells[1].Value = categories[comboBox1.SelectedIndex].title;
-            //newDataRow.Cells[2].Value = Items[comboBox2.SelectedIndex].title;
-            //newDataRow.Cells[3].Value = textBox3.Text;
-            //newDataRow.Cells[4].Value = comboBox3.Text;
-            //newDataRow.Cells[5].Value = textBox4.Text;
-            //newDataRow.Cells[6].Value = comboBox4.Text;
-            //newDataRow.Cells[7].Value = textBox5.Text;
-            //newDataRow.Cells[8].Value = textBox7.Text;
-            //newDataRow.Cells[9].Value = textBox8.Text;
-            //newDataRow.Cells[10].Value = textBox2.Text;
-            //newDataRow.Cells[11].Value = textBox6.Text;
             if (textBox4.Text.Length == 0)
                 textBox4.Text = "0.0";
             if (textBox5.Text.Length == 0)
@@ -516,34 +486,13 @@ namespace pos_management_system.Forms.Bills
             dataGridView1.Update();
             dataGridView1.Refresh();
         }
-
         private void button5_Click(object sender, EventArgs e)
         {
-            //Recipts.CrystalReport1 cr = new Recipts.CrystalReport1();
-            //BindingSource bs = new BindingSource();
-            //foreach (KeyValuePair<int, Classes.Bills> bill in Bills)
-            //{
-            //    object bind_item = new
-            //    {
-            //        id = bill.Value.item.id,
-            //        category = bill.Value.category.title,
-            //        name = bill.Value.item.title,
-            //        count = bill.Value.quantity,
-            //        //sale_type = bill.Value.sale_type,
-            //        //sale_value = bill.Value.sale,
-            //        //tax_type = bill.Value.tax_type,
-            //        //tax_value = bill.Value.tax,
-            //        price = bill.Value.item.sales_price,
-            //        //regulare_price = bill.Value.item.regular_price,
-            //        //price_discount = bill.Value.discount,
-            //        //total = bill.Value.total_price
-            //        total = bill.Value.total_price
-            //    };
-            //    bs.Add(bind_item);
-            //}
-            //cr.ReportSource = bs;
-            //
-            //cr.SetDataSource(bs);
+            Recipts.gENERATOR cr = new Recipts.gENERATOR();
+            Bliss_classes.Bill Bill_items = new Bliss_classes.Bill();
+            Bill_items.load_items(Bills);
+            Reports.Crystal_reports crm = new Reports.Crystal_reports(Bill_items.get_bill());
+            crm.Show();
         }
     }
 }

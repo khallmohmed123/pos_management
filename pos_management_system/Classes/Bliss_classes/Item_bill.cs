@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace pos_management_system.Recipts
+namespace Bliss_classes
 {
     class Item_bill
     {

@@ -47,9 +47,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Guna.UI2">
       <HintPath>..\..\Factory_Management\packages\Guna.UI2.WinForms.2.0.4.2\lib\net45\Guna.UI2.dll</HintPath>
     </Reference>
@@ -59,6 +61,7 @@
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,6 +83,11 @@
     <Compile Include="controllers\mapper.cs" />
     <Compile Include="controllers\translator.cs" />
     <Compile Include="controllers\User.cs" />
+    <Compile Include="DataSets\Bill.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Bill.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +136,12 @@
     <Compile Include="Forms\Layout\Layout.Designer.cs">
       <DependentUpon>Layout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\Crystal_reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Crystal_reports.Designer.cs">
+      <DependentUpon>Crystal_reports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Users\Users.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +157,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>gENERATOR.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Recipts\gENERATOR1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gENERATOR.rpt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -165,6 +184,9 @@
     <EmbeddedResource Include="Forms\Layout\Layout.resx">
       <DependentUpon>Layout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Crystal_reports.resx">
+      <DependentUpon>Crystal_reports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,8 +201,19 @@
     </Compile>
     <EmbeddedResource Include="Recipts\gENERATOR.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>gENERATOR.cs</LastGenOutput>
+      <LastGenOutput>gENERATOR1.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="DataSets\Bill.xsc">
+      <DependentUpon>Bill.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bill.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Bill.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bill.xss">
+      <DependentUpon>Bill.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
